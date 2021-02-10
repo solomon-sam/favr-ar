@@ -1,5 +1,5 @@
 var materialName = "dark_wood";
-var dark_wood = new BABYLON.NodeMaterial(materialName);
+var nodeMaterial = new BABYLON.NodeMaterial("node");
 var inputTextureColor = "./assets/texture/"+materialName+"/"+materialName+"_color.jpg";
 var inputTextureNormal = "./assets/texture/"+materialName+"/"+materialName+"_normal.jpg";
 var inputTextureRoughness = "./assets/texture/"+materialName+"/"+materialName+"_roughness.jpg";
@@ -244,7 +244,7 @@ Reflection.reflection.connectTo(PBRMetallicRoughness.reflection);
 PBRMetallicRoughness.lighting.connectTo(FragmentOutput.rgb);
 
 // Output nodes
-dark_wood.addOutputNode(VertexOutput);
-dark_wood.addOutputNode(FragmentOutput);
-var materialUse = dark_wood.build();
+nodeMaterial.addOutputNode(VertexOutput);
+nodeMaterial.addOutputNode(FragmentOutput);
+var materialUse = nodeMaterial.build();
 export {materialUse};

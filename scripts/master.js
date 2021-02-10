@@ -1,10 +1,10 @@
 var active;
 var editorNav;
-import { materialUse } from '../assets/texture/dark_wood.js';
 window.addEventListener("DOMContentLoaded", function() {
   editorNav = document.getElementById("bottom-editor-nav");
   var canvas = document.getElementById("canvas");
   var engine = new BABYLON.Engine(canvas, true);
+  import { materialUse } from '../assets/texture/dark_wood.js';
 
   var createScene = function() {
     const scene = new BABYLON.Scene(engine);
