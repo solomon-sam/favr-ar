@@ -1,7 +1,6 @@
 var active;
 var editorNav;
 import { materialUse } from '../assets/texture/dark_wood.js';
-
 window.addEventListener("DOMContentLoaded", function() {
   editorNav = document.getElementById("bottom-editor-nav");
   var canvas = document.getElementById("canvas");
