@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no'>
+  <meta name='mobile-web-app-capable' content='yes'>
+  <meta name='apple-mobile-web-app-capable' content='yes'>
+  <link rel='icon' type='image/png' sizes='32x32' href='image/favicon-32x32.png'>
+  <link rel='icon' type='image/png' sizes='96x96' href='image/favicon-96x96.png'>
+  <title>FAVR AR</title>
+  <script src="https://kit.fontawesome.com/a9912885c4.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <script src="https://cdn.babylonjs.com/babylon.max.js"></script>
+<script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+  <script type="module" src="scripts/master.js"></script>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+  <div id="content">
+    <div class="header">
+      <span class="slide-left">
+        <div class="menu-button-holder" id="menu-button-left">
+          <a href="#" onclick="menuToggleButton('left')"><span class="menu-button-inner"><i class="fas fa-angle-right"></i></span><span class="menu-button-inner"><i class="fas fa-times"></i></span></a>
+        </div>
+      </span>
+      <span class="slide-right">
+        <div class="menu-button-holder" id="menu-button-right">
+          <a href="#" onclick="menuToggleButton('right')"><span class="menu-button-inner"><i class="fas fa-angle-left"></i></span><span class="menu-button-inner"><i class="fas fa-times"></i></span></a>
+        </div>
+      </span>
+    </div>
+
+    <div class="nav" id="menu-slide-left">
+      <h2>Categories</h2>
+      <a href="#">Item 1</a>
+      <a href="#">Item 2</a>
+      <a href="#">Item 3</a>
+      <a href="#">Item 4</a>
+    </div>
+    <div class="nav" id="menu-slide-right">
+      <h2>User Menu</h2>
+      <a href="#">Item 1</a>
+      <a href="#">Item 2</a>
+      <a href="#">Item 3</a>
+      <a href="#">Item 4</a>
+    </div>
+    <h1>Main viewer</h1>
+    <nav class="bottom-nav" id="bottom-editor-nav">
+      <a href="" class="nav-link nav-link"><i class="nav-icon fas fa-edit"></i><span>Edit</span></a>
+      <a href="" class="nav-link nav-link-active"><i class="nav-icon fas fa-adjust"></i><span>Colour</span></a>
+      <a href="" class="nav-link nav-link"><i class="nav-icon fas fa-trash-alt"></i><span>Delete</span></a>
+      <a href="" class="nav-link nav-link"><i class="nav-icon fas fa-expand-arrows-alt"></i><span>Move</span></a>
+      <a href="" class="nav-link nav-link"><i class="nav-icon far fa-question-circle"></i><span>Info</span></a>
+      <a href="" class="nav-link nav-link"><i class="nav-icon far fa-heart"></i><span>Save</span></a>
+    </nav>
+  </div>
+</body>
+
+</html>
