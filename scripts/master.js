@@ -1,5 +1,7 @@
 var active;
 var editorNav;
+import {dark_wood} from './assets/texture/dark_wood.js';
+
 window.addEventListener("DOMContentLoaded", function() {
   editorNav = document.getElementById("bottom-editor-nav");
   var canvas = document.getElementById("canvas");
@@ -11,7 +13,6 @@ window.addEventListener("DOMContentLoaded", function() {
     var box = BABYLON.Mesh.CreateBox("Box", 4.0, scene);
     // object placed ends
     // Material
-    import {dark_wood} from './assets/texture/dark_wood.js';
     box.material = dark_wood;
     // Material ends
     //camera secton to be replaces
