@@ -1,6 +1,6 @@
 var active;
 var editorNav;
-import {dark_wood} from './assets/texture/dark_wood.js';
+import { materialUse } from './assets/texture/dark_wood.js';
 
 window.addEventListener("DOMContentLoaded", function() {
   editorNav = document.getElementById("bottom-editor-nav");
@@ -13,7 +13,7 @@ window.addEventListener("DOMContentLoaded", function() {
     var box = BABYLON.Mesh.CreateBox("Box", 4.0, scene);
     // object placed ends
     // Material
-    box.material = dark_wood;
+    box.material = materialUse;
     // Material ends
     //camera secton to be replaces
     const camera = new BABYLON.ArcRotateCamera("arcCamera", BABYLON.Tools.ToRadians(45), BABYLON.Tools.ToRadians(45), 10.0, box.position, scene);

@@ -246,5 +246,5 @@ PBRMetallicRoughness.lighting.connectTo(FragmentOutput.rgb);
 // Output nodes
 dark_wood.addOutputNode(VertexOutput);
 dark_wood.addOutputNode(FragmentOutput);
-dark_wood.build();
-export {dark_wood};
+var materialUse = dark_wood.build();
+export {materialUse};
