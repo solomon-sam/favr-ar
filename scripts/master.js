@@ -4,7 +4,6 @@ window.addEventListener("DOMContentLoaded", function() {
   editorNav = document.getElementById("bottom-editor-nav");
   var canvas = document.getElementById("canvas");
   var engine = new BABYLON.Engine(canvas, true);
-  import { materialUse } from '../assets/texture/dark_wood.js';
 
   var createScene = function() {
     const scene = new BABYLON.Scene(engine);
@@ -12,14 +11,14 @@ window.addEventListener("DOMContentLoaded", function() {
     var box = BABYLON.Mesh.CreateBox("Box", 4.0, scene);
     // object placed ends
     // Material
-    box.material = materialUse;
+    box.material = darkwoodMaterial;
     // Material ends
     //camera secton to be replaces
     const camera = new BABYLON.ArcRotateCamera("arcCamera", BABYLON.Tools.ToRadians(45), BABYLON.Tools.ToRadians(45), 10.0, box.position, scene);
     camera.attachControl(canvas, true);
     //camera ends
     // lighting
-    const light = new BABYLON.PointLight("pointLight", new BABYLON.Vector3(5, 10, 5), scene);
+    const light = new BABYLON.PointLight("Omni", new BABYLON.Vector3(20, 100, 2), scene);
     light.diffuse = new BABYLON.Color3(1, 1, 1);
     // lighting ends
     // Action Manager
