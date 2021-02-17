@@ -8,10 +8,12 @@ window.addEventListener("DOMContentLoaded", function() {
   var createScene = function() {
     const scene = new BABYLON.Scene(engine);
     //object placed
-    var box = BABYLON.Mesh.CreateBox("Box", 4.0, scene);
+    var objectSet1 = BABYLON.SceneLoader.Append("../assets/chair/", "Chair_Leg_1.glb", scene);
+    var objectSet2 = BABYLON.SceneLoader.Append("../assets/chair/", "Chair_top_1.glb", scene);
     // object placed ends
     // Material
-    box.material = darkwoodMaterial;
+    objectSet2.material = darkwoodMaterial;
+    objectSet2.material = lightwoodMaterial;
     // Material ends
     //camera secton to be replaces
     const camera = new BABYLON.ArcRotateCamera("arcCamera", BABYLON.Tools.ToRadians(45), BABYLON.Tools.ToRadians(45), 10.0, box.position, scene);
@@ -32,10 +34,13 @@ window.addEventListener("DOMContentLoaded", function() {
       })
     );
     // end Action Manager
+
     return scene;
   }
   var scene = createScene();
+
   engine.runRenderLoop(function() {
+
     scene.render();
   });
 });
