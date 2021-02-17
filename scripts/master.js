@@ -8,15 +8,18 @@ window.addEventListener("DOMContentLoaded", function() {
   var createScene = function() {
     const scene = new BABYLON.Scene(engine);
     //object placed
-    var objectSet1 = BABYLON.SceneLoader.Append("../assets/chair/", "Chair_Leg_1.glb", scene);
-    var objectSet2 = BABYLON.SceneLoader.Append("../assets/chair/", "Chair_top_1.glb", scene);
+    BABYLON.SceneLoader.ImportMesh("", "../assets/chair/", "Chair_Leg_1.glb", scene, function(newMeshes){
+         var objectSet2 = newMeshes[0].getChildMeshes()[1];
+         objectSet2.material = darkwoodMaterial;
+     });
+     BABYLON.SceneLoader.ImportMesh("", "../assets/chair/", "Chair_top_1.glb", scene, function(newMeshes){
+         var objectSet2 = newMeshes[0].getChildMeshes()[1];
+         objectSet2.material = lightwoodMaterial;
+     });
     // object placed ends
-    // Material
-    objectSet2.material = darkwoodMaterial;
-    objectSet2.material = lightwoodMaterial;
-    // Material ends
+
     //camera secton to be replaces
-    const camera = new BABYLON.ArcRotateCamera("arcCamera", BABYLON.Tools.ToRadians(45), BABYLON.Tools.ToRadians(45), 10.0, box.position, scene);
+    const camera = new BABYLON.ArcRotateCamera("arcCamera", BABYLON.Tools.ToRadians(45), BABYLON.Tools.ToRadians(45), 10.0, objectSet2.position, scene);
     camera.attachControl(canvas, true);
     //camera ends
     // lighting
