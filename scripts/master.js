@@ -8,11 +8,11 @@ window.addEventListener("DOMContentLoaded", function() {
   var createScene = function() {
     const scene = new BABYLON.Scene(engine);
     //object placed
-    BABYLON.SceneLoader.ImportMesh("", "../assets/chair/", "Chair_Leg_1.glb", scene, function(newMeshes){
+    BABYLON.SceneLoader.ImportMesh("", "./assets/chair/", "Chair_Leg_1.glb", scene, function(newMeshes){
          var objectSet2 = newMeshes[0].getChildMeshes()[1];
          objectSet2.material = darkwoodMaterial;
      });
-     BABYLON.SceneLoader.ImportMesh("", "../assets/chair/", "Chair_top_1.glb", scene, function(newMeshes){
+     BABYLON.SceneLoader.ImportMesh("", "./assets/chair/", "Chair_top_1.glb", scene, function(newMeshes){
          var objectSet2 = newMeshes[0].getChildMeshes()[1];
          objectSet2.material = lightwoodMaterial;
      });
