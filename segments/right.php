@@ -1,0 +1,8 @@
+<?php ?>
+<div class="nav" id="menu-slide-right">
+  <h2>User Menu</h2>
+  <a href="#">Item 1</a>
+  <a href="#">Item 2</a>
+  <a href="#">Item 3</a>
+  <a href="#">Item 4</a>
+</div>
