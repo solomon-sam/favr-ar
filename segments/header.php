@@ -6,5 +6,4 @@
 <link rel="stylesheet" href="css/nav.css" />
 <script src="https://cdn.babylonjs.com/babylon.max.js"></script>
 <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
-<script src="scripts/material.js"></script>
 <script src="scripts/master.js"></script>
