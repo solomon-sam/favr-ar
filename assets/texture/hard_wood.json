@@ -862,7 +862,7 @@
       "convertToGammaSpace": false,
       "convertToLinearSpace": false,
       "valueType": "number",
-      "value": 2
+      "value": 10
     },
     {
       "customType": "BABYLON.TextureBlock",
@@ -907,7 +907,7 @@
       "fragmentOnly": false,
       "texture": {
         "tags": null,
-        "url": "https://solomon-sam.github.io/favr-ar/assets/texture/hard_wood/hard_wood_normal.jpg",
+        "url": "./assets/texture/hard_wood/hard_wood_normal.jpg",
         "uOffset": 0,
         "vOffset": 0,
         "uScale": 1,
@@ -920,7 +920,7 @@
         "wRotationCenter": 0.5,
         "homogeneousRotationInUVTransform": false,
         "isBlocking": true,
-        "name": "https://solomon-sam.github.io/favr-ar/assets/texture/hard_wood/hard_wood_normal.jpg",
+        "name": "./assets/texture/hard_wood/hard_wood_normal.jpg",
         "hasAlpha": false,
         "getAlphaFromRGB": false,
         "level": 1,
@@ -1016,7 +1016,7 @@
       "fragmentOnly": false,
       "texture": {
         "tags": null,
-        "url": "https://solomon-sam.github.io/favr-ar/assets/texture/hard_wood/hard_wood_color.jpg",
+        "url": "./assets/texture/hard_wood/hard_wood_color.jpg",
         "uOffset": 0,
         "vOffset": 0,
         "uScale": 1,
@@ -1029,7 +1029,7 @@
         "wRotationCenter": 0.5,
         "homogeneousRotationInUVTransform": false,
         "isBlocking": true,
-        "name": "https://solomon-sam.github.io/favr-ar/assets/texture/hard_wood/hard_wood_color.jpg",
+        "name": "./assets/texture/hard_wood/hard_wood_color.jpg",
         "hasAlpha": false,
         "getAlphaFromRGB": false,
         "level": 1,
@@ -1193,7 +1193,7 @@
       "fragmentOnly": false,
       "texture": {
         "tags": null,
-        "url": "https://solomon-sam.github.io/favr-ar/assets/texture/hard_wood/hard_wood_roughness.jpg",
+        "url": "./assets/texture/hard_wood/hard_wood_roughness.jpg",
         "uOffset": 0,
         "vOffset": 0,
         "uScale": 1,
@@ -1206,7 +1206,7 @@
         "wRotationCenter": 0.5,
         "homogeneousRotationInUVTransform": false,
         "isBlocking": true,
-        "name": "https://solomon-sam.github.io/favr-ar/assets/texture/hard_wood/hard_wood_roughness.jpg",
+        "name": "./assets/texture/hard_wood/hard_wood_roughness.jpg",
         "hasAlpha": false,
         "getAlphaFromRGB": false,
         "level": 1,
@@ -1267,7 +1267,7 @@
       ],
       "texture": {
         "tags": null,
-        "url": "https://solomon-sam.github.io/favr-ar/assets/skybox/environment.dds",
+        "url": "./assets/skybox/environment.dds",
         "rotationY": 0,
         "forcedExtension": ".dds",
         "textureMatrix": {
@@ -1288,7 +1288,7 @@
           "14": 0,
           "15": 1
         },
-        "name": "https://solomon-sam.github.io/favr-ar/assets/skybox/environment.dds",
+        "name": "./assets/skybox/environment.dds",
         "hasAlpha": false,
         "getAlphaFromRGB": false,
         "level": 1,

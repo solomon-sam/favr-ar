@@ -1,6 +1,7 @@
 var active;
 var editorNav;
 var clickedMesh;
+var scene;
 
 var meshUrl = "./assets/";
 var meshType = "chair";
@@ -10,17 +11,17 @@ var meshList = {
 };
 var meshTestures = {
   Chair_Leg_1: ["darkWood", "lightWood", "hardWood"],
-  Chair_Leg_2: ["darkWood", "lightWood", "hardWood"],
-  Chair_Leg_3: ["darkWood", "lightWood", "hardWood"],
+  Chair_Leg_2: ["lightWood", "hardWood", "darkWood"],
+  Chair_Leg_3: ["hardWood", "darkWood", "lightWood"],
   Chair_Leg_4: ["darkWood", "lightWood", "hardWood"],
-  Chair_top_1: ["darkWood", "lightWood", "hardWood"],
-  Chair_top_2: ["darkWood", "lightWood", "hardWood"]
+  Chair_top_1: ["lightWood", "hardWood", "darkWood"],
+  Chair_top_2: ["hardWood", "darkWood", "lightWood"]
 }
 
 window.addEventListener("DOMContentLoaded", function() {
   var canvas = document.getElementById("canvas");
   var engine = new BABYLON.Engine(canvas, true);
-  var scene = new BABYLON.Scene(engine);
+  scene = new BABYLON.Scene(engine);
   editorNav = document.getElementById("bottom-editor-nav");
   const bottomMenu = document.querySelector('#bottom-editor-nav');
   bottomMenu.style.display = "none";
@@ -28,9 +29,15 @@ window.addEventListener("DOMContentLoaded", function() {
   var darkWood = new BABYLON.NodeMaterial("darkWood", scene);
   var lightWood = new BABYLON.NodeMaterial("lightWood", scene);
   var hardWood = new BABYLON.NodeMaterial("hardWood", scene);
-  darkWood.loadAsync(meshUrl + "texture/dark_wood.json");
-  lightWood.loadAsync(meshUrl + "texture/light_wood.json");
-  hardWood.loadAsync(meshUrl + "texture/hard_wood.json");
+  darkWood.loadAsync(meshUrl + "texture/dark_wood.json").then(() => {
+    darkWood.build(true);
+  });
+  lightWood.loadAsync(meshUrl + "texture/light_wood.json").then(() => {
+    lightWood.build(true);
+  });
+  hardWood.loadAsync(meshUrl + "texture/hard_wood.json").then(() => {
+    hardWood.build(true);
+  });
 
   var createScene = function() {
     //camera secton to be replaces
@@ -45,16 +52,21 @@ window.addEventListener("DOMContentLoaded", function() {
     scene.clearColor = BABYLON.Color3.White();
     // lighting ends
 
-
+    var storeValue;
     //object placed
+    var listOfMesh = [];
+    var count = 0;
     for (let value of Object.keys(meshList)) {
       var firstMesh = meshList[value];
-      var firstMateial = meshTestures[firstMesh[0]];
-      BABYLON.SceneLoader.ImportMesh("", meshUrl + meshType + "/", firstMesh[0] + ".glb", scene, function(meshImport) {
-        var materialAssign = meshImport[0].getChildMeshes();
+      listOfMesh.push(firstMesh[0]);
+      BABYLON.SceneLoader.ImportMeshAsync("", meshUrl + meshType + "/", firstMesh[0] + ".glb", scene).then(function(result) {
+        result.meshes[0].name = listOfMesh[count];
+        var materialAssign = result.meshes[0].getChildMeshes();
         materialAssign.forEach(function(meshHandler) {
+          var firstMateial = meshTestures[listOfMesh[count]];
           meshHandler.material = eval(firstMateial[0]);
         });
+        count++;
       });
     }
     // object placed ends
@@ -75,39 +87,22 @@ window.addEventListener("DOMContentLoaded", function() {
       if (pickResult.hit) {
         pickResult.pickedMesh.material = lightWood;
         bottomMenu.style.display = "flex";
-        clickedMesh = pickResult.pickedMesh.name;
+        var pickedMeshName = pickResult.pickedMesh.name;
+        clickedMesh = pickedMeshName.split(".");
       }
-    };
+    }
+    document.getElementById("delete-item").addEventListener("click",function () {
+      alert(clickedMesh[0]);
+      scene.getNodeByName(clickedMesh[0]).dispose();
+      return false;
+    });
     return scene;
-
   }
   var scene = createScene();
 
   engine.runRenderLoop(function() {
-
-    scene.render();
-  });
+    scene.render();  });
 });
-
-function editMesh() {
-
-}
-
-function editColour() {
-
-}
-
-function deleteItem() {
-
-}
-
-function moveItem() {
-
-}
-
-function saveItem() {
-
-}
 
 function menuToggleButton(area) {
   var editorNav = document.getElementById("bottom-editor-nav");
